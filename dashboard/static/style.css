@@ -1,0 +1,74 @@
+/* 🌑 Background */
+body {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e2e8f0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🔷 Header */
+.dashboard-header {
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.8);
+    border-bottom: 1px solid #334155;
+    backdrop-filter: blur(10px);
+}
+
+/* 🔍 Search bar */
+.search-bar input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: white;
+    margin-top: 15px;
+}
+
+/* 📊 Chart cards */
+.chart-card {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #334155;
+}
+
+/* 📄 Data cards */
+.data-card {
+    background: #020617;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.data-card:hover {
+    transform: scale(1.01);
+    border-left: 4px solid #ef4444;
+}
+
+/* 🚨 Alert badge */
+.alert-badge {
+    background-color: #ef4444;
+    margin-top: 8px;
+}
+
+/* 📜 Content preview */
+.content-preview {
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* 🟦 Buttons */
+.btn-outline-warning {
+    border-radius: 20px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+    .chart-card {
+        margin-bottom: 20px;
+    }
+}

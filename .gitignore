@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+.env
+venv/
+node_modules/
+*.db
+*.log
+
+# Elasticsearch
+elasticsearch-data/
+
+# Mongo
+mongodb-data/
+
+# Docker
+*.pid
+
+# VS Code
+.vscode/
+
+# Kali/Linux
+.cache/
+
+# Secrets
+config/settings.py

@@ -1,0 +1,16 @@
+password
+email
+bank
+credit card
+login
+admin
+gmail
+google
+amazon
+yahoo
+example
+id
+phone
+username
+address
+API Key

@@ -1,0 +1,8 @@
+requests[socks]
+pymongo
+elasticsearch==8.11.0
+beautifulsoup4
+stem
+schedule
+flask
+python-dotenv

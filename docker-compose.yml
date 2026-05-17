@@ -1,0 +1,64 @@
+services:
+
+  tor:
+    image: dperson/torproxy
+    container_name: tor_proxy
+    ports:
+      - "9050:9050"
+    restart: always
+
+  mongodb:
+    image: mongo:6
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    restart: always
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: darkweb_app
+
+    depends_on:
+      - mongodb
+      - elasticsearch
+      - tor
+
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+      - ELASTIC_HOST=http://elasticsearch:9200
+      - TOR_PROXY=socks5h://tor:9050
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/app
+
+    restart: unless-stopped
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    # ✅ FIXED: No wait script
+    command: python main.py
+
+volumes:
+  mongo_data:
+  es_data:
